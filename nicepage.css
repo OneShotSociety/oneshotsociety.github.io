@@ -26542,7 +26542,7 @@ h6 {
 }
 .u-body {
   color: #111111;
-  background-color: #ffffff;
+  background-color: #ffffffC2;
   --effect-scale: 1.1;
 }
 /*end-variables color*/
@@ -31664,7 +31664,7 @@ section.u-grey:before,
 .u-grey.u-sidenav:before,
 .u-container-layout.u-container-layout.u-grey:before,
 .u-table-alt-grey tr:nth-child(even) {
-  color: #ffffffC2;
+  color: #ffffff;
   background-color: #b3b3b3;
 }
 .u-input.u-grey,
