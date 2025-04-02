@@ -10,6 +10,66 @@
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 7.6.4, nicepage.com">
+
+	   <style>
+        /* Basic styles for the form */
+        body {
+            font-family: 'Noto Sans', sans-serif; /* Change font to Noto Sans */
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: lightgray;
+        }
+
+        button {
+            background-color: #ff5a5a;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #e04e4e; /* Slightly darker on hover */
+        }
+        
+        /* Message display styles */
+        .message {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none; /* Hidden by default */
+        }
+    </style>
     
     
     
@@ -196,7 +256,52 @@
               </div>
               <div class="u-align-center u-container-style u-layout-cell u-shape-rectangle u-size-34-lg u-size-34-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
                 <div class="u-container-layout u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
-                  <p class="u-text u-text-default u-text-3">insert contact here</p>
+                 <form id="contactForm">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <input type="hidden" name="subject" value="General Query">
+    <button type="submit">Submit</button>
+    <div id="responseMessage" class="message"></div>
+</form>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        // Retrieve form values
+        const name = event.target.name.value.trim();
+        const email = event.target.email.value.trim();
+        const message = event.target.message.value.trim();
+        
+        // Simple validation
+        if (!name || !email || !message) {
+            showMessage('Error: All fields are required.', 'error');
+            return;
+        }
+        
+        // Validate email format using a regex
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            showMessage('Error: Please provide a valid email address.', 'error');
+            return;
+        }
+
+        // Simulate form submission (you would typically send this data to a server)
+        showMessage('Message Sent!', 'success');
+        
+        // Reset form fields
+        event.target.reset();
+    });
+
+    function showMessage(message, type) {
+        const responseMessage = document.getElementById('responseMessage');
+        responseMessage.textContent = message;
+        responseMessage.style.color = type === 'error' ? 'red' : 'green';
+        responseMessage.style.display = 'block';
+    }
+</script>
+
                 </div>
               </div>
             </div>
