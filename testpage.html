@@ -266,5 +266,45 @@
           <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-hover-custom-color-1 u-text-white u-btn-2" href="Terms-of-Use.html" data-page-id="57376080" title="Terms of Use">Terms of Use</a>
         </p>
       </div></footer>
+
+	  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form[name="Contact"]');
+    const successMessage = document.querySelector('.u-form-send-success');
+    const errorMessage = document.querySelector('.u-form-send-error');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Clear previous messages
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+
+        // Create a FormData object
+        const formData = new FormData(form);
+
+        // Send form data using fetch API
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            if (data === 'success') {
+                // Show success message
+                successMessage.style.display = 'block';
+            } else {
+                // Show error message
+                errorMessage.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            // Log the error and show the error message
+            console.error('Error:', error);
+            errorMessage.style.display = 'block';
+        });
+    });
+});
+</script>
   
 </body></html>
