@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $message = "Name: $name\n";
     // Add other fields to the message
     
-    $headers = "From: faq@oneshotsociety.uk"; // Change this to a valid "From" email
+    $headers = "From: admin@oneshotsociety.uk"; // Change this to a valid "From" email
 
     // Send the email
     if (mail($to, $subject, $message, $headers)) {
