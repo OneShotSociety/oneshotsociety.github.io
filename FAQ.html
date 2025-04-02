@@ -224,6 +224,20 @@
     <input type="hidden" value="" name="recaptchaResponse">
     <input type="hidden" name="formServices" value="034fac74-7484-c9b8-db9d-2006a0246175">
 </form>
+
+			  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting immediately
+
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LdiWAcrAAAAAExPK1QNMbsKBUCUh8hKKwp8jEUp', { action: 'submit' }).then(function(token) {
+                // Add your logic to submit to your backend
+                document.getElementById('recaptchaResponse').value = token; // Add token to the hidden input
+                document.getElementById('contactForm').submit(); // Now submit the form
+            });
+        });
+    });
+</script>
                   </div>
                 </div>
               </div>
