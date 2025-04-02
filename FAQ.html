@@ -204,32 +204,23 @@
               <div class="u-align-center u-container-align-center u-container-style u-layout-cell u-shape-rectangle u-size-34-lg u-size-34-xl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
                 <div class="u-container-layout u-valign-top u-container-layout-2">
                   <div class="u-expanded-width u-form u-form-1">
-                    <form action="https://oneshotsociety.uk/faq_form.php." class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 0;" source="email" name="Contact">
-                      <div class="u-form-group u-form-name">
-                        <label for="name-daf4" class="u-label">Name</label>
-                        <input type="text" placeholder="Enter your Name" id="name-daf4" name="name" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" required="">
-                      </div>
-                      <div class="u-form-email u-form-group">
-                        <label for="email-daf4" class="u-label">Email</label>
-                        <input type="email" placeholder="Enter a valid email address" id="email-daf4" name="email" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" required="">
-                      </div>
-                      <div class="u-form-group u-form-message">
-                        <label for="message-daf4" class="u-label">Message</label>
-                        <textarea placeholder="" rows="4" cols="50" id="message-daf4" name="message" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle" required=""></textarea>
-                      </div>
-		  </div>
-			    <!-- Captcha Key Here -->
-			 <div class="g-recaptcha" data-sitekey="6LdiWAcrAAAAAExPK1QNMbsKBUCUh8hKKwp8jEUp"></div>
-		  </div>
-                      <div class="u-align-left u-form-group u-form-submit">
-                        <a href="#" class="u-active-palette-1-light-2 u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-light-1 u-palette-1-base u-btn-1">Submit</a>
-                        <input type="submit" value="submit" class="u-form-control-hidden">
-                      </div>
-                      <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
-                      <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
-                      <input type="hidden" value="" name="recaptchaResponse">
-                      <input type="hidden" name="formServices" value="034fac74-7484-c9b8-db9d-2006a0246175">
-                    </form>
+<form action="submit_form.php" method="POST" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 0;" source="email" name="Contact">
+    <!-- Your input fields -->
+    <input type="text" name="name" required placeholder="Your Name" class="u-input">
+    <input type="email" name="email" required placeholder="Your Email" class="u-input">
+    <textarea name="message" required placeholder="Your Message" class="u-input u-textarea"></textarea>
+
+    <!-- Include the reCAPTCHA widget here -->
+    <div class="g-recaptcha" data-sitekey="6LdiWAcrAAAAAExPK1QNMbsKBUCUh8hKKwp8jEUp" style="margin-bottom: 15px;"></div>
+
+    <!-- Submission button -->
+    <button type="submit" class="u-btn">Submit</button>
+
+    <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+    <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
+    <input type="hidden" value="" name="recaptchaResponse">
+    <input type="hidden" name="formServices" value="034fac74-7484-c9b8-db9d-2006a0246175">
+</form>
                   </div>
                 </div>
               </div>
