@@ -226,6 +226,29 @@
                       <input type="hidden" value="" name="recaptchaResponse">
                       <input type="hidden" name="formServices" value="034fac74-7484-c9b8-db9d-2006a0246175">
                     </form>
+
+<script>
+        $(document).ready(function() {
+            $('form[name="FAQ"]').on('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                const formData = $(this).serialize(); // Serialize form data
+
+                // Send the form data to your server-side script
+                $.ajax({
+                    type: 'POST',
+                    url: 'send-email.php',
+                    data: formData,
+                    success: function(response) {
+                        alert(response); // Show the server response
+                    },
+                    error: function() {
+                        alert('There was an error sending your message. Please try again.');
+                    }
+                });
+            });
+        });
+</script>
                   </div>
                 </div>
               </div>
