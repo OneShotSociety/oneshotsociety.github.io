@@ -1,3 +1,4 @@
+<script>
 document.querySelector('form[name="FAQ"]').onsubmit = function (event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -17,3 +18,4 @@ document.querySelector('form[name="FAQ"]').onsubmit = function (event) {
         console.error('Error:', error);
     });
 };
+</script>
