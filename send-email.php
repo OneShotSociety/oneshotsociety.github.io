@@ -6,14 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Additional fields can be collected here
     
     // Set the recipient email address
-    $to = 'your-email@example.com'; // Change this to your email address
+    $to = 'admin@oneshotsociety.uk'; // Change this to your email address
     $subject = 'New Form Submission';
     
     // Build the email content
     $message = "Name: $name\n";
     // Add other fields to the message
     
-    $headers = "From: noreply@example.com"; // Change this to a valid "From" email
+    $headers = "From: faq@oneshotsociety.uk"; // Change this to a valid "From" email
 
     // Send the email
     if (mail($to, $subject, $message, $headers)) {
