@@ -85,42 +85,57 @@
         <div class="u-align-center u-border-2 u-border-grey-75 u-container-style u-expanded-width-xs u-gradient u-group u-group-1">
           <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-1">
             <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
-              <div style="width: 700px; height: 402px; border: 1px solid #ccc; padding: 20px; box-sizing: border-box; background-color: white;">
-                <form id="contactForm">
-                  <div style="margin-bottom: 5px;">
-                    <label for="name">Name:</label>
-                    <br>
-                    <input type="text" id="name" font="noto-sans" name="name" required="" style="width: 100%; padding: 10px; box-sizing: border-box;">
-                  </div>
-                  <div style="margin-bottom: 15px;">
-                    <label for="email">Email:</label>
-                    <br>
-                    <input type="email" id="email" name="email" required="" style="width: 100%; padding: 10px; box-sizing: border-box;">
-                  </div>
-                  <div style="margin-bottom: 15px;">
-                    <label for="social">Facebook URL / Discord Username:</label>
-                    <br>
-                    <input type="text" id="social" name="social" required="" style="width: 100%; padding: 10px; box-sizing: border-box;">
-                  </div>
-                  <div style="margin-bottom: 15px;">
-                    <label for="options">Select Option:</label>
-                    <br>
-                    <select id="options" name="options" style="width: 100%; padding: 10px; box-sizing: border-box;">
-                      <option value="option1">16/04 - Vaesen - Cardiff</option>
-                      <option value="option2">20/04 - Intro to Deadlands - Cheltenham</option>
-                      <option value="option3">23/04 - DnD From Zero - Newport</option>
-                      <option value="option4">23/04 - DnD From Zero - Cheltenham</option>
-                      <option value="option5">25/04 - Vaesen - London</option>
-                      <option value="option6">27/04 - Pop-Up Adventure - Cardiff</option><!-- Add more options as needed -->
-                    </select>
-                  </div>
-                  <div style="margin-bottom: 15px;">
-                    <input type="checkbox" id="ageConfirmation" name="ageConfirmation" required="">
-                    <label for="ageConfirmation">I confirm I am over the age of 18</label>
-                  </div>
-                  <button type="submit" style="width: 100%; background-color: #FF4444; color: white; padding: 15px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
-                </form>
-		<script src="form-handler.js"></script>
+
+<div style="width: 700px; margin: auto; border: 1px solid #ccc; padding: 20px; box-sizing: border-box; background-color: white;">
+    <form id="contactForm" onsubmit="sendEmail(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 15px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+        
+        <label for="social">Facebook URL / Discord Username:</label>
+        <input type="text" id="social" name="social" required style="width: 100%; padding: 10px; margin-bottom: 15px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+        
+        <label for="options">Select Option:</label>
+        <select id="options" name="options" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+            <option value="" disabled selected>-- Please Choose --</option>
+            <option value="option1">16/04 - Vaesen - Cardiff</option>
+            <option value="option2">20/04 - Intro to Deadlands - Cheltenham</option>
+            <option value="option3">23/04 - DnD From Zero - Newport</option>
+            <option value="option4">23/04 - DnD From Zero - Cheltenham</option>
+            <option value="option5">25/04 - Vaesen - London</option>
+            <option value="option6">27/04 - Pop-Up Adventure - Cardiff</option>
+        </select>
+
+        <label for="ageConfirmation">
+            <input type="checkbox" id="ageConfirmation" name="ageConfirmation" required>
+            I confirm I am over the age of 18
+        </label>
+
+        <button type="submit" style="width: 100%; background-color: #FF4444; color: white; padding: 15px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Send Message</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+<script>
+    // Initialize EmailJS
+    (function() {
+        emailjs.init("user_n1I2zl5xdeESUPAu7"); // Replace with your actual User ID or API Key
+    })();
+    
+    function sendEmail(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        emailjs.sendForm('service_nreuakn', 'template_aqfbvrk', this) // Replace with your Service ID and Template ID
+            .then(function() {
+                alert('Email sent successfully!'); // Success message
+                document.getElementById("contactForm").reset(); // Reset form after submission
+            }, function(error) {
+                alert('Failed to send email: ' + JSON.stringify(error)); // Show error message
+            });
+    }
+</script>
               </div>
             </div>
           </div>
