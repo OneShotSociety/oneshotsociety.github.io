@@ -7,7 +7,7 @@ document.getElementById('faqForm').addEventListener('submit', function(event) {
         message: document.getElementById('message').value
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbx-etYblRwMrbQfMMKU5baBfUju4_Py_x7mbiLAMyYBgINYJY0C-y4PrRdIzjI5ulmM/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbwB3HM094jR8xOnlRVGxj2oVFMSMJsXzaRMvqZDaxkhRgma4ue3zAIyoTbhkDB_JPBt/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
