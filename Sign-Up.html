@@ -127,10 +127,15 @@
     function sendEmail(event) {
         event.preventDefault(); // Prevent default form submission
 
-        emailjs.sendForm('service_nreuakn', 'template_aqfbvrk', document.getElementById('contactForm'))
+        // Fetch the form element
+        var form = document.getElementById('contactForm');
+        console.log("Form: ", form); // Check if the form is correctly fetched
+
+        // Send the form data
+        emailjs.sendForm('service_nreuakn', 'template_aqfbvrk', form)
             .then(function() {
                 alert('Email sent successfully!'); // Success message
-                document.getElementById("contactForm").reset(); // Reset form after submission
+                form.reset(); // Reset the form after submission
             }, function(error) {
                 alert('Failed to send email: ' + JSON.stringify(error)); // Show error message
             });
