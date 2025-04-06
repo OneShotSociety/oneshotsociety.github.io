@@ -86,37 +86,39 @@
           <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-1">
             <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
               <div style="width: 700px; height: 402px; border: 1px solid #ccc; padding: 20px; box-sizing: border-box; background-color: white;">
-                <form id="contactForm">
-                  <div style="margin-bottom: 5px;">
-                   <form action="https://OSSPHP.rf.gd/form-handler.php" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="social">Facebook URL / Discord Username:</label>
-    <input type="text" id="social" name="social" placeholder="e.g., https://facebook.com/yourprofile or Discord#1234" required>
-
-    <label for="platform">Select a Platform:</label>
-    <select id="platform" name="platform" required>
-        <option value="">-- Please Choose --</option>
-        <option value="16/04 - Vaesen - Cardiff">16/04 - Vaesen - Cardiff</option>
-        <option value="20/04 - Intro to Deadlands - Cheltenham">20/04 - Intro to Deadlands - Cheltenham</option>
-        <option value="23/04 - DnD From Zero - Newport">23/04 - DnD From Zero - Newport</option>
-	<option value="23/04 - DnD From Zero - Cheltenham">23/04 - DnD From Zero - Cheltenham</option>
-	<option value="23/04 - DnD From Zero - Newport">23/04 - DnD From Zero - Newport</option>
-	<option value="25/04 - Vaesen - London">25/04 - Vaesen - London</option>
-	<option value="27/04 - Pop-Up Adventure - Cardiff">27/04 - Pop-Up Adventure - Cardiff</option>
-    </select>
-
-    <label>
-        <input type="checkbox" id="age-confirm" name="age-confirm" required>
-        I confirm that I am over 18 years of age
-    </label>
-
-    <button type="submit">Send</button>
-</form>
+                <div style="width: 700px; margin: auto; border: 1px solid #ccc; padding: 20px; box-sizing: border-box; background-color: white;">
+    <form id="contactForm" method="POST" action="process_form.php">
+        <div style="margin-bottom: 15px;">
+            <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
+            <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; box-sizing: border-box;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+            <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; box-sizing: border-box;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="social" style="display: block; margin-bottom: 5px;">Facebook URL / Discord Username:</label>
+            <input type="text" id="social" name="social" required style="width: 100%; padding: 10px; box-sizing: border-box;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="options" style="display: block; margin-bottom: 5px;">Select Option:</label>
+            <select id="options" name="options" required style="width: 100%; padding: 10px; box-sizing: border-box;">
+                <option value="" disabled selected>-- Please Choose --</option>
+                <option value="option1">16/04 - Vaesen - Cardiff</option>
+                <option value="option2">20/04 - Intro to Deadlands - Cheltenham</option>
+                <option value="option3">23/04 - DnD From Zero - Newport</option>
+                <option value="option4">23/04 - DnD From Zero - Cheltenham</option>
+                <option value="option5">25/04 - Vaesen - London</option>
+                <option value="option6">27/04 - Pop-Up Adventure - Cardiff</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <input type="checkbox" id="ageConfirmation" name="ageConfirmation" required>
+            <label for="ageConfirmation" style="display: inline;">I confirm I am over the age of 18</label>
+        </div>
+        <button type="submit" style="width: 100%; background-color: #FF4444; color: white; padding: 15px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+    </form>
               </div>
             </div>
           </div>
